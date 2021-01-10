@@ -23,6 +23,9 @@ socket.on('send', (send) => {io.emit('brodcast',send)} )
 socket.on('disconnect', () => {
     io.emit('message','A user has left')
 })
+socket.on('send-location',(location) => {
+    io.emit('message','https://google.com/maps?q='+location.lat+','+location.long)
+})
 })
 
  server.listen(port, () => {
